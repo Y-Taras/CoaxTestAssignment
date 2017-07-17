@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Rating from 'react-rating';
-import orderBy from 'lodash/orderBy'
+import orderBy from 'lodash/orderBy';
 import { Table } from 'reactstrap';
 
 const SortTypes = {
@@ -24,6 +24,16 @@ class SortableTable extends React.Component {
     this.onSortChange = this.onSortChange.bind(this);
   }
 
+  componentWillMount() {
+    const { price_list } = this.props;
+    this.setState({ list: price_list });
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const { price_list } = nextProps;
+    this.setState({ list: price_list });
+  }
+
   onSortChange(propertyName, evt) {
     evt.preventDefault();
     this.sortTable(this.state.sortDir[propertyName], propertyName);
@@ -36,9 +46,7 @@ class SortableTable extends React.Component {
   }
 
   sortTable(sortDir = 'ASC', columnName) {
-    console.log('sortDir', sortDir, 'columnName', columnName);
-
-    this.setState({list: orderBy(this.props.price_list, [columnName], [sortDir.toLowerCase()])})
+    this.setState({ list: orderBy(this.props.price_list, [columnName], [sortDir.toLowerCase()]) });
   }
 
   tableRender(list) {
