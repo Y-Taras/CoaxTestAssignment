@@ -4,6 +4,8 @@
   "version": "0.0.44",
   "dependencies": {
     "bootstrap": "4.0.0-alpha.6",
+    "lodash": "^4.17.4",
+    "prop-types": "^15.5.10",
     "react": "15.5.3",
     "react-addons-css-transition-group": "15.6.0",
     "react-addons-transition-group": "15.6.0",
