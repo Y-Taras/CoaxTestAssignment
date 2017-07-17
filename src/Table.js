@@ -46,7 +46,11 @@ class SortableTable extends React.Component {
   }
 
   sortTable(sortDir = 'ASC', columnName) {
-    this.setState({ list: orderBy(this.props.price_list, [columnName], [sortDir.toLowerCase()]) });
+    columnName === 'price'
+      ? this.setState({
+          list: orderBy(this.props.price_list, item => parseFloat(item.price.slice(1)), [sortDir.toLowerCase()])
+        })
+      : this.setState({ list: orderBy(this.props.price_list, [columnName], [sortDir.toLowerCase()]) });
   }
 
   tableRender(list) {

@@ -1,5 +1,7 @@
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
+and deployed to Heroku at https://coax-test-react-app.herokuapp.com/
+
 # Description
 You need to create a component for creating tables with additional functionality for users.
 
